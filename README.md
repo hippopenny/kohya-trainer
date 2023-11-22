@@ -23,6 +23,8 @@ This repository contains the scripts for:
 These files do not contain requirements for PyTorch. Because the versions of them depend on your environment. Please install PyTorch at first (see installation guide below.) 
 
 The scripts are tested with Pytorch 2.0.1. 1.12.1 is not tested but should work.
+It also works with Pytorch 2.1.0
+xformer 0.0.22.post7 
 
 ## Links to usage documentation
 
@@ -58,15 +60,15 @@ Give unrestricted script access to powershell so venv can work:
 Open a regular Powershell terminal and type the following inside:
 
 ```powershell
-git clone https://github.com/kohya-ss/sd-scripts.git
-cd sd-scripts
+git clone https://github.com/hippopenny/kohya-trainer.git
+cd kohya-trainer # same as instruction in sd-scripts
 
 python -m venv venv
 .\venv\Scripts\activate
 
-pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu118
 pip install --upgrade -r requirements.txt
-pip install xformers==0.0.20
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu118
 
 accelerate config
 ```
@@ -106,7 +108,7 @@ For Windows, there are several versions of `bitsandbytes`:
 
 Note: `bitsandbytes`above 0.35.0 till 0.41.0 seems to have an issue: https://github.com/TimDettmers/bitsandbytes/issues/659
 
-Follow the instructions below to install `bitsandbytes` for Windows.
+Follow the instructions below to install `bitsandbytes` for Windows. We are using 0.41.1
 
 ### bitsandbytes 0.35.0 for Windows
 
@@ -127,6 +129,8 @@ This will install `bitsandbytes` 0.35.0 and copy the necessary files to the `bit
 ### bitsandbytes 0.41.1 for Windows
 
 Install the Windows version whl file from [here](https://github.com/jllllll/bitsandbytes-windows-webui) or other sources, like:
+Note that there is no need to execute `cp` commands like 0.35.0 above. And this bitsandbytes installation need to happen after pytorch installation.
+We are using this version.
 
 ```powershell
 python -m pip install bitsandbytes==0.41.1 --prefer-binary --extra-index-url=https://jllllll.github.io/bitsandbytes-windows-webui
